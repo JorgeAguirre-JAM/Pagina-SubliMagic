@@ -28,6 +28,20 @@
 </head>
 
 <body>
+    <div id="spinner" class="spinner-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <script>
+        // Cuando la página termine de cargar
+        window.addEventListener("load", function () {
+        const spinner = document.getElementById("spinner");
+        spinner.classList.add("hidden"); // Oculta el spinner
+        });
+    </script>
+
+    
+
     <div class="container-xxl bg-white p-0" id="inicio">
         <!-- NAVBAR E IMAGEN -->
         <div class="container-xxl position-relative p-0">
