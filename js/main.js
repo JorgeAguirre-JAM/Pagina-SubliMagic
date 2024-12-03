@@ -1,22 +1,10 @@
 (function ($) {
     "use strict";
 
-    // Spinner
-    var spinner = function () {
-        setTimeout(function () {
-            if ($('#spinner').length > 0) {
-                $('#spinner').removeClass('show');
-            }
-        }, 1);
-    };
-    spinner();
-    
-    
-    // Initiate the wowjs
-    new WOW().init();
 
 
-    // Sticky Navbar
+
+    // Navbar
     $(window).scroll(function () {
         if ($(this).scrollTop() > 45) {
             $('.navbar').addClass('sticky-top shadow-sm');
@@ -54,7 +42,7 @@
     });
     
     
-    // Back to top button
+    // regresar arriba 
     $(window).scroll(function () {
         if ($(this).scrollTop() > 300) {
             $('.back-to-top').fadeIn('slow');
@@ -68,14 +56,14 @@
     });
 
 
-    // Facts counter
+    // contador
     $('[data-toggle="counter-up"]').counterUp({
         delay: 10,
         time: 2000
     });
 
 
-    // Modal Video
+    // Modal del video
     $(document).ready(function () {
         var $videoSrc;
         $('.btn-play').click(function () {
@@ -93,7 +81,7 @@
     });
 
 
-    // Testimonials carousel
+    // opiiniones
     $(".testimonial-carousel").owlCarousel({
         autoplay: true,
         smartSpeed: 1000,
