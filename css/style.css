@@ -469,8 +469,8 @@
 
 
 .slider-box{
-    width: 100vw;
-    height: 800px;
+    width: 100%;
+    height: auto;
     margin-top: 5vw;
     overflow: hidden;
 }
@@ -490,6 +490,16 @@
 
 .slider-box img{
     width: 100%;
+}
+
+.slider-box .box-principal{
+    box-shadow: 0 -10px 10px #0f172b;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
 @keyframes slide {
