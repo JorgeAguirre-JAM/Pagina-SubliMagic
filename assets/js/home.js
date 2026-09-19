@@ -1,5 +1,5 @@
 import { SITE_MEDIA } from './media-config.js';
-import { catalogItemCard, loadPublicCatalog } from './public-catalog.js?v=20260919-4';
+import { catalogItemCard, loadPublicCatalog } from './public-catalog.js?v=20260919-5';
 
 function safeImage(img, fallback = 'img/favicon.png') {
   if (!img) return;

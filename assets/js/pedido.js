@@ -1,6 +1,6 @@
 import { SITE_CONFIG } from './config.js';
 import { apiRequest, createIdempotencyKey } from './api.js';
-import { escapeAttr, escapeHtml, findCatalogItem, loadPublicCatalog } from './public-catalog.js';
+import { escapeAttr, escapeHtml, findCatalogItem, loadPublicCatalog } from './public-catalog.js?v=20260919-5';
 import {
   customerAuth,
   getCustomerIdToken,
@@ -399,7 +399,7 @@ async function setupTurnstile() {
     document.head.appendChild(script);
   }
   for (let i = 0; i < 100 && !window.turnstile; i += 1) await new Promise(resolve => setTimeout(resolve, 50));
-  if (window.turnstile) window.turnstile.render(host, { sitekey: SITE_CONFIG.turnstileSiteKey, theme: 'light', action: 'solicitud_web' });
+  if (window.turnstile) window.turnstile.render(host, { sitekey: SITE_CONFIG.turnstileSiteKey, theme: 'light' });
 }
 setupTurnstile();
 
@@ -478,7 +478,6 @@ form?.addEventListener('submit', async (event) => {
     if (error.status === 429) setMessage('Se alcanzó el límite de solicitudes. Espera un poco antes de intentar de nuevo.', 'error');
     else if (error.status === 401) setMessage('Tu sesión de Google expiró. Vuelve a iniciar sesión.', 'error');
     else setMessage(error.message || 'No pudimos enviar la solicitud. Inténtalo de nuevo.', 'error');
-    window.turnstile?.reset?.();
   } finally {
     submit.disabled = false;
     submit.textContent = 'Enviar solicitud para revisión';
