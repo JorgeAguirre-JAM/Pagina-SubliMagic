@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Envía una solicitud de personalización a Subli-Magic de forma segura.">
+  <title>Personaliza y solicita | Subli-Magic</title>
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="assets/css/tokens.css"><link rel="stylesheet" href="assets/css/base.css"><link rel="stylesheet" href="assets/css/components.css"><link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="pedido">
+  <div data-site-header></div>
+  <main>
+    <section class="page-hero"><div class="container"><span class="eyebrow eyebrow--on-dark">Solicitud segura</span><h1>Personaliza un producto real del catálogo</h1><p>Primero validamos tu cuenta de Google. Después puedes adjuntar el diseño y enviar la solicitud. Nada entra a producción hasta que nuestro equipo lo revise contigo.</p></div></section>
+    <section class="section"><div class="container order-layout">
+      <form id="web-order-form" class="card order-card" novalidate>
+        <div class="order-steps"><span class="order-step is-active">1. Producto</span><span class="order-step">2. Google</span><span class="order-step">3. Diseño</span><span class="order-step">4. Revisión</span></div>
+
+        <div class="customer-auth-gate" data-auth-gate>
+          <div class="customer-auth-gate__copy"><strong>Identifícate con Google antes de enviar</strong><p>Esto reduce solicitudes falsas y vincula la cotización a un correo verificable. Tu cuenta no recibe acceso al sistema interno.</p></div>
+          <button class="google-signin-btn" type="button" data-google-signin><span class="google-g">G</span><span>Continuar con Google</span></button>
+          <div class="customer-session" data-customer-session hidden><img data-customer-avatar alt=""><div><strong data-customer-name></strong><span data-customer-email></span></div><button type="button" data-google-signout>Cambiar cuenta</button></div>
+          <p class="auth-hint" data-auth-hint>Puedes preparar la solicitud ahora. Inicia sesión con Google antes de adjuntar tu diseño y enviarla.</p>
+        </div>
+
+        <fieldset class="order-fieldset" data-order-fields>
+          <div class="form-grid">
+            <div class="field field--8"><label for="producto">Producto o servicio *</label><select id="producto" name="producto" required><option value="">Cargando catálogo desde Beheer…</option></select><span class="form-help" data-product-source-help>Solo aparecen registros activos de Beheer.</span></div>
+            <div class="field field--4"><label for="medida" data-measure-label>Cantidad *</label><input id="medida" name="medida" type="number" min="1" step="1" value="1" required><span class="form-help" data-measure-help>Selecciona primero un producto.</span></div>
+            <div class="field" data-product-config hidden></div>
+            <div class="field"><label for="personalizacion">¿Cómo quieres personalizarlo? *</label><textarea id="personalizacion" name="personalizacion" maxlength="2000" placeholder="Colores, tallas, nombres, técnica, medidas, idea del diseño…" required></textarea><span class="form-help">No envíes datos bancarios ni contraseñas.</span></div>
+            <div class="field"><label for="diseno">Archivo de diseño</label><input id="diseno" name="diseno" type="file" disabled accept="image/jpeg,image/png,image/webp,application/pdf"><span class="form-help">PNG, JPG, WEBP o PDF. Máximo 8 MB. El archivo se guarda de forma privada.</span><div class="design-file-preview" data-design-preview hidden></div></div>
+            <div class="field field--6"><label for="nombre">Nombre *</label><input id="nombre" name="nombre" autocomplete="name" maxlength="100" required></div>
+            <div class="field field--6"><label for="telefono">Teléfono / WhatsApp *</label><input id="telefono" name="telefono" autocomplete="tel" inputmode="tel" maxlength="30" required></div>
+            <div class="field field--6"><label for="email">Correo verificado *</label><input id="email" name="email" type="email" autocomplete="email" maxlength="160" readonly required></div>
+            <div class="field field--6"><label for="fechaDeseada">Fecha deseada</label><input id="fechaDeseada" name="fechaDeseada" type="date"></div>
+            <div class="field"><label for="comentarios">Comentarios adicionales</label><textarea id="comentarios" name="comentarios" maxlength="2000" placeholder="Cualquier detalle que debamos considerar."></textarea></div>
+            <div class="honeypot" aria-hidden="true"><label>Website<input type="text" name="website" tabindex="-1" autocomplete="off"></label></div>
+            <div class="field"><div id="turnstile-container" data-turnstile-container></div><div class="alert alert--info" data-security-status>Google + Turnstile + validación en Beheer protegen este formulario contra spam y dobles envíos.</div></div>
+            <div class="field"><div data-form-message hidden></div></div>
+            <div class="field"><button class="btn btn-dark" type="submit" data-submit-order>Enviar solicitud para revisión</button></div>
+          </div>
+        </fieldset>
+      </form>
+      <aside class="card order-summary">
+        <span class="eyebrow">Resumen</span><h3>Antes de enviar</h3>
+        <div class="summary-row"><span>Producto</span><strong data-summary-product>Sin seleccionar</strong></div>
+        <div class="summary-row"><span data-summary-measure-label>Cantidad</span><strong data-summary-qty>—</strong></div>
+        <div class="summary-row" data-summary-variant-row hidden><span>Variante</span><strong data-summary-variant>—</strong></div>
+        <div class="summary-row"><span>Cuenta</span><strong data-summary-account>No autenticada</strong></div>
+        <div class="summary-row"><span>Contacto</span><strong data-summary-contact>—</strong></div>
+        <p class="order-summary-note">La solicitud aparecerá en Beheer como <strong>Solicitud web</strong>. No será un pedido normal hasta que el equipo la revise.</p>
+      </aside>
+    </div></section>
+  </main>
+  <div data-site-footer></div>
+  <script type="module" src="assets/js/shell.js"></script>
+  <script type="module" src="assets/js/pedido.js"></script>
+</body>
+</html>

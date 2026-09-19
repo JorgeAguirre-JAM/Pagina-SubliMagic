@@ -1,674 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html lang="es">
 <head>
-    <meta charset="utf-8">
-    <title>Subli-Magic - Inicio</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/OMEGA SUBLI.png" rel="icon">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Libraries Stylesheet -->
-    <link href="lib/animate/animate.min.css" rel="stylesheet">
-    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
-
-    <!--Bootstrap Stylesheet -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Stylesheet -->
-    <link href="css/style.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Subli-Magic es una agencia de merchandising y productos personalizados para marcas, empresas, equipos, creadores y eventos.">
+  <title>Subli-Magic | Merchandising que conecta marcas con personas</title>
+  <link rel="icon" href="img/favicon.png">
+  <link rel="preconnect" href="https://images.pexels.com" crossorigin>
+  <link rel="stylesheet" href="assets/css/tokens.css">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/pages.css">
 </head>
-
-<body>
-    
-
-    <div class="container-xxl bg-white p-0" id="inicio">
-        <!-- NAVBAR E IMAGEN -->
-        <div class="container-xxl position-relative p-0">
-            <nav class="navbar navbar-expand-lg navbar-dark bg-dark px-4 px-lg-5 py-3 py-lg-0">
-                <a href="" class="navbar-brand p-0">
-                    <img src="img/HERRADURA SUBLI.png" alt="Logo">
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto py-0 pe-4">
-                        <a href="index.html#inicio" class="nav-item nav-link active" style="font-weight: bold;">Home</a>
-                        <a href="index.html#acerca" class="nav-item nav-link" style="font-weight: bold;">Acerca de</a>
-                        <a href="index.html#prod" class="nav-item nav-link" style="font-weight: bold;">PRODUCTOS</a>
-                    </div>
-                    <a href="contact.html#form" class="btn btn-primary py-2 px-4" style="font-weight: bold; background-color: rgba(116, 116, 116, 0.377); border-color: rgba(255, 255, 255, 0);">Contactanos</a>
-                </div>
-            </nav>
-
-            <div class="container-xxl py-5 bg-dark hero-header mb-5">
-                <div class="container my-5 py-5">
-                    <div class="row align-items-center g-5">
-                        <div class="col-lg-6 text-center text-lg-start">
-                            <h1 class="display-3 animated slideInLeft" style="background: linear-gradient(to right, #009dff 0%, #bfff00 30%, #d7068e 65%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; font-size: 6vw;">La Magia</h1>
-                            <h1 class="display-3 text-white animated slideInLeft" style="font-size: 3vw;">De La Sublimación</h1>
-                            <p class="text-white animated slideInLeft mb-4 pb-2">La mejor empresa de personalizacion del mundo</p>
-                            <a href="aboutrse.html#acerca" class="btn btn-primary py-sm-3 px-sm-5 me-3 animated slideInLeft " style="font-weight: bold; background-color: rgba(116, 116, 116, 0.377); border-color: rgba(255, 255, 255, 0); transition: transform 0.3s ease;">Conoce más</a>
-                        </div>
-                        <div class="col-lg-6 text-center text-lg-end overflow-hidden">
-                            <img class="img-fluid" src="img/taza con logo.png" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
+<body data-page="home">
+  <div data-site-header></div>
+  <main>
+    <section class="home-hero">
+      <div class="container home-hero__grid">
+        <div class="home-hero__copy">
+          <span class="eyebrow eyebrow--on-dark">Tu aliado en merchandising</span>
+          <h1>Ideas que conectan <span class="gradient-text">marcas con personas.</span></h1>
+          <p class="lead">Merchandising para empresas, equipos, creadores, eventos y proyectos especiales. Diseñamos, producimos y te acompañamos para convertir una idea en una experiencia de marca.</p>
+          <div class="hero-actions">
+            <a class="btn btn-gradient" href="pedido.html">Solicita tu cotización <span aria-hidden="true">→</span></a>
+            <a class="btn btn-ghost-light" href="productos.html">Explora el catálogo <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="hero-service-row" aria-label="Beneficios">
+            <div><strong>Envíos</strong><span>Atención y seguimiento</span></div>
+            <div><strong>Calidad</strong><span>Producción cuidada</span></div>
+            <div><strong>Asesoría</strong><span>Proyecto acompañado</span></div>
+          </div>
         </div>
-        <!-- NAVBAR E IMAGEN -->
-
-        <!--<div class="slider-box">
-            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                <h5 class="section-title text-center fw-normal" style="color: rgb(21, 21, 21); font-family: Arial, Helvetica, sans-serif;">
-                    Productos Personalizados
-                </h5>
-                <h1 class="mb-5">Los más vendidos</h1>
-            </div>
-            
-            <div class="box-principal">
-                <ul>
-                    <li>
-                        <img src="img/PROMO PAGINA WEB PLAYERAS 14.svg" alt="Promo Playeras">
-                    </li>
-
-                    <li>
-                        <img src="img/PROMO PAGINA WEB TAZAS 14.svg" alt="Promo Playeras">
-                    </li>
-
-                    <li>
-                        <img src="img/PROMO PAGINA WEB PLAYERAS 14.svg" alt="Promo Playeras">
-                    </li>
-
-                    <li>
-                        <img src="img/PROMO PAGINA WEB TAZAS 14.svg" alt="Promo Playeras">
-                    </li>
-                </ul>
-            </div>
-        </div>-->
-
-
-        <!-- SERVICIOS -->
-        <div class="container-xxl py-5">
-            <div class="container">
-                <div class="row g-4">
-                    <div class="col-lg-3 col--6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-user-tie text-primary mb-4"></i>
-                                <h5>Diseñadores</h5>
-                                <p>Diseñadores Top, encargados de plasmar tus sueños y deseos.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x  text-primary mb-4"> <img class="imagen-like" src="img/like-social-media-icon-56f266.png" alt=""></i>
-                                <h5>Calidad de Productos</h5>
-                                <p>Lo mejor en materiales, un servicio de calidad y ayudar al ambiente.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-cart-plus text-primary mb-4"></i>
-                                <h5>Compra Segura</h5>
-                                <p>Procurando tu seguridad personal y economica, sin sacrificar tanto.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="service-item rounded pt-3">
-                            <div class="p-4">
-                                <i class="fa fa-3x fa-headset text-primary mb-4"></i>
-                                <h5>Trato Excepcional</h5>
-                                <p>Siempre con un trato atento y personalizado para cada cliente.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="home-hero__visual">
+          <div class="home-hero__image-frame"><img data-hero-image src="img/fondo1.jpg" alt="Merchandising personalizado" fetchpriority="high"></div>
+          <div class="hero-floating-card"><span>Subli-Magic</span><strong>Merchandising que impulsa tu marca.</strong></div>
         </div>
-        <!-- SERVICIOS -->
+      </div>
+    </section>
 
+    <section class="audience-strip" id="soluciones">
+      <div class="container audience-grid">
+        <div class="audience-intro"><span class="eyebrow">Más que productos</span><h2>Creamos <span class="gradient-text">conexiones.</span></h2></div>
+        <article class="audience-item"><div class="audience-icon">↗</div><div><strong>Emprendedores</strong><p>Tu marca lista para crecer.</p></div></article>
+        <article class="audience-item"><div class="audience-icon">▦</div><div><strong>Empresas</strong><p>Merch corporativo y regalos.</p></div></article>
+        <article class="audience-item"><div class="audience-icon">◎</div><div><strong>Equipos y clubes</strong><p>Identidad que los hace únicos.</p></div></article>
+        <article class="audience-item"><div class="audience-icon">◇</div><div><strong>Eventos</strong><p>Experiencias que se recuerdan.</p></div></article>
+      </div>
+    </section>
 
-        <!-- ACERCA DE -->
-        <div class="container-xxl py-5" id="acerca">
-            <div class="container">
-                <div class="row g-5 align-items-center" >
-                    <div class="col-lg-6">
-                        <div class="row g-3">
-                            <div class="col-6 text-start" >
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.1s" src="img/male-female-graphic-designers-interacting-computer.jpg">
-                            </div>
-                            <div class="col-6 text-start">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.3s" src="img/medium-shot-people-working-desk.jpg" style="margin-top: 25%;">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-75 wow zoomIn" data-wow-delay="0.5s" src="img/person-holding-brown-wooden-board.jpg">
-                            </div>
-                            <div class="col-6 text-end">
-                                <img class="img-fluid rounded w-100 wow zoomIn" data-wow-delay="0.7s" src="img/images.jpeg">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <h5 class="section-title text-start  fw-normal" style="font-family: Arial, Helvetica, sans-serif;" id="acerca">Acerca de</h5>
-                        <h1 class="mb-4" style="color: black">Lider en Personalización</h1>
-                        <p class="mb-4" >En Subli-Magic, transformamos tus ideas en productos personalizados únicos. Somos expertos en sublimación y personalización creativa, ofreciendo una amplia variedad de artículos que se adaptan a tus gustos y necesidades. Desde prendas hasta accesorios, cada pieza es elaborada con la más alta calidad y atención al detalle, asegurando una experiencia que supera tus expectativas. Déjanos darle un toque mágico a tus momentos especiales.</p>
-                        
-                        <div class="row g-4 mb-4">
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center border-5 px-3" >
-                                    <h1 class="flex-shrink-0 display-5 mb-0" data-toggle="counter-up" style="color: black">10</h1>
-                                    <div class="ps-4">
-                                        <p class="mb-0">Años de</p>
-                                        <h6 class="text-uppercase mb-0">Experiencia</h6>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="d-flex align-items-center px-3">
-                                    
-                                    <h1 class="flex-shrink-0 display-5 mb-0" data-toggle="counter-up" style="color: black;">1000</h1>
-                                    <div class="ps-4">
-                                        <p class="mb-0" style="font-family: Arial, Helvetica, sans-serif;;">Clientes</p>
-                                        <h6 class="text-uppercase mb-0" style="color: black;" >y contando</h6>
-                                    </div>
-                                </div>
-                            </div>
-                        <p class="mb-4">¿Te gustaría hacer tu pedido de manera mas rapida y con un trato directo?</p>
-                        <p class="mb-4"><strong>Contactanos </strong>ahora mismo y plasma tus sentimientos en donde quieras.</p>
-                        </div>
-                        <a class="btn py-3 px-5 mt-2" href="https://wa.me/5219213031536" style="background-color: black; color: white;"><img src="img/whatsapp.png" alt="" style="width: 40px; top: 20px;">       WhatsApp</a>
-                    </div>
-                </div>
-            </div>
+    <section class="section section--soft">
+      <div class="container">
+        <div class="section-headline-row">
+          <div><span class="eyebrow">Productos destacados</span><h2>Una muestra del catálogo real.</h2><p>Solo mostramos productos y servicios activos en Beheer. Aquí aparecen como máximo cuatro; el catálogo completo vive en la tienda.</p></div>
+          <a class="text-link" href="productos.html">Ver catálogo completo →</a>
         </div>
-        <!-- ACERCA DE -->
+        <div class="product-grid product-grid--premium" data-featured-products></div>
+      </div>
+    </section>
 
-
-        <!-- Productos-->
-        <div class="container-xxl py-5" id="prod">
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 class="section-title text-center fw-normal" style="color: rgb(21, 21, 21); font-family: Arial, Helvetica, sans-serif;">
-                        Productos Personalizados
-                    </h5>
-                    <h1 class="mb-5">Los más vendidos</h1>
-                </div>
-                <div class="tab-class text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <ul class="nav nav-pills d-inline-flex justify-content-center border-bottom mb-5">
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 ms-0 pb-3 active" data-bs-toggle="pill" href="#tab-1">
-                                <i class="fa fa-2x text-primary"></i>
-                                <div class="ps-3">
-                                    <h6 class="mt-n1 mb-0">Tazas</h6>
-                                </div>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="d-flex align-items-center text-start mx-3 pb-3" data-bs-toggle="pill" href="#tab-2">
-                                <i class="fa fa-2x text-primary"></i>
-                                <div class="ps-3">
-                                    <h6 class="mt-n1 mb-0">Ropa</h6>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div id="tab-1" class="tab-pane fade show p-0 active">
-                            <div class="row g-4">
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/taza_blanca_para_sublimar.webp" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Tazas Blancas</span>
-                                                <span>$80</span>
-                                            </h5>
-                                            <small class="fst-italic">Tazas blancas de 11oz, Full print con acabado brilloso. </small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/Taza-Color-Interno-Y-Asa-11-Oz_-para-Sublimacion-Color-Make-11.webp" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Tazas De Color Interior</span>
-                                                <span>$100</span>
-                                            </h5>
-                                            <small class="fst-italic">Tazas de color interior de 11oz, Full print con acabado brilloso.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/14157.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Tazas metalicas</span>
-                                                <span>$110</span>
-                                            </h5>
-                                            <small class="fst-italic">Tazas color metalico de 11oz, Full print con acabado brilloso.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/713PcD81z1L._UF1000,1000_QL80_.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Tazas Magicas</span>
-                                                <span>$110</span>
-                                            </h5>
-                                            <small class="fst-italic">Tazas negras, con calor cambian a blancas de 11oz, Full print con acabado brilloso.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/SUBCERTAZESPIYMCHAPZ.jpeg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Tazas Especiales</span>
-                                                <span>Variable</span>
-                                            </h5>
-                                            <small class="fst-italic">Tazas especiales de 11oz, Full print con acabado brilloso.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/tarro-cervecero11-0836a13f0dda7ea3a416880511245250-1024-1024.png" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Tarros Satinados</span>
-                                                <span>$210</span>
-                                            </h5>
-                                            <small class="fst-italic">Tarro Satinado sin color 600ml,acabado satinado</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/TARRO-SATINADO-COLORES_AZUL.webp" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Tarros Satinados de Color</span>
-                                                <span>$210</span>
-                                            </h5>
-                                            <small class="fst-italic">Tarro Satinado de color 600ml,acabado satinado</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/D_NQ_NP_706210-MLM74356558055_022024-O.webp" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Vaso Bamboo</span>
-                                                <span>$210</span>
-                                            </h5>
-                                            <small class="fst-italic">Vaso de Cristal Santinado de colores.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div id="tab-2" class="tab-pane fade show p-0">
-                            <div class="row g-4">
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center"> 
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/163423-1600-1600.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Playeras Cuello Redondo</span>
-                                                <span>$180</span>
-                                            </h5>
-                                            <small class="fst-italic">Playeras 100% algodon, cuello redondo, no se deslava ni pierde color.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/163990-1200-1200.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Playeras Cuello V</span>
-                                                <span>$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Playeras 100% algodon, cuello v, no se deslava ni pierde color.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/164190-1200-1200.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Playeras Tipo Polo</span>
-                                                <span>$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Playeras 100% algodon, tipo polo, no se deslava ni pierde color.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/164070-1200-1200.jpg"  alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Playeras Cuello Redondo - Sublimacion</span>
-                                                <span>$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Playeras 60% algodon y 40% poliester, cuello redondo, no se deslava.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/165390-1200-1200.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Playeras Sin Mangas</span>
-                                                <span>$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Playeras 100% algodon, cuello redondo sin mangas, no se deslava ni pierde color.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/163785-1200-1200.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Playeras Deportivas - Dry</span>
-                                                <span>$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Playeras 100% algodon, cuello redondo drytech, no se deslava ni pierde color.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/165316-1200-1200.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Sudaderas - Capucha y Cangurera</span>
-                                                <span>$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Sudaderas 100% algodon, capucha y cangurera, no se deslava ni pierde color.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center">
-                                        <img class="flex-shrink-0 img-fluid rounded" src="img/165220-1200-1200.jpg" alt="" style="width: 80px;">
-                                        <div class="w-100 d-flex flex-column text-start ps-4">
-                                            <h5 class="d-flex justify-content-between border-bottom pb-2">
-                                                <span>Sudadera - Cuello Redondo</span>
-                                                <span>$115</span>
-                                            </h5>
-                                            <small class="fst-italic">Sudaderas 100% algodon, sin gorro, con cangurera, no se deslava ni pierde color.</small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    <section class="section section--tight section--white">
+      <div class="container">
+        <div class="offer-banner">
+          <div class="offer-banner__content"><span class="offer-pill">Oferta del mes</span><h2>Productos que hacen <span class="gradient-text">crecer tu marca.</span></h2><p>Este espacio está pensado para campañas temporales, promociones y paquetes especiales.</p><a class="btn btn-gradient" href="pedido.html">Cotizar una idea →</a></div>
+          <div class="offer-banner__media"><img data-offer-image src="img/fondo1.jpg" alt="Oferta destacada"></div>
         </div>
-        <!-- Productos-->
+      </div>
+    </section>
 
-
-        <!-- VIDEO -->
-        <div class="container-xxl py-5 px-0 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="row g-0">
-                <div class="col-md-12">
-                    <div class="video">
-                        <button type="button" class="btn-play" data-bs-toggle="modal" data-src="https://youtu.be/NaFm45_oFEU" data-bs-target="#videoModal">
-                            <span></span>
-                        </button>
-                    </div>
-                </div>
-            </div>
+    <section class="section section--white">
+      <div class="container">
+        <div class="section-heading section-heading--wide"><span class="eyebrow">¿Cómo hacer tu pedido?</span><h2>Fácil para ti. Seguro para la operación.</h2><p>La web registra una solicitud. El equipo revisa producto, medida o cantidad, diseño, fecha y alcance antes de convertirla en un pedido real.</p></div>
+        <div class="order-process">
+          <article><span class="process-number">1</span><strong>Elige del catálogo</strong><p>El producto siempre proviene de Beheer.</p></article>
+          <article><span class="process-number">2</span><strong>Inicia sesión</strong><p>Google nos ayuda a validar una identidad real.</p></article>
+          <article><span class="process-number">3</span><strong>Adjunta tu diseño</strong><p>PNG, JPG, WEBP o PDF para revisar tu idea.</p></article>
+          <article><span class="process-number">4</span><strong>Revisamos contigo</strong><p>Solo con confirmación pasa a la operación real.</p></article>
+          <aside class="security-note"><strong>Tu tranquilidad es primero</strong><p>Una solicitud web nunca descuenta inventario, registra pagos ni entra a producción automáticamente.</p></aside>
         </div>
+      </div>
+    </section>
 
-        <div class="modal fade" id="videoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content rounded-0">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Youtube Video</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="ratio ratio-16x9">
-                            <iframe width="560" height="315" src="https://www.youtube.com/embed/NaFm45_oFEU?si=9NZ-QuVE2Hff0AME" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- VIDEO -->
-
-
-        <!-- PARTICIPANTES
-        <div class="container-xxl pt-5 pb-3">
-            <div class="container">
-                <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Miembros del Equipo</h5>
-                    <h1 class="mb-5">Nuestros Mejores Programadores y Diseñadores</h1>
-                </div>
-                <div class="row g-4">
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="img/IMG_20240826_062447_990.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Jorge Aguirre</h5>
-                            <small>CEO y Diseñador de la Empresa</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="img/Imagen de WhatsApp 2024-11-15 a las 20.56.05_e92b3275.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Ernesto Gamboa</h5>
-                            <small>Colaborador de la Pagina</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="img/JOSSEL.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Jossel Ledezma</h5>
-                            <small>Colaborador de la Pagina</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                        <div class="team-item text-center rounded overflow-hidden">
-                            <div class="rounded-circle overflow-hidden m-4">
-                                <img class="img-fluid" src="img/AMADO.jpg" alt="">
-                            </div>
-                            <h5 class="mb-0">Amado Muciño</h5>
-                            <small>Colaborador de la Pagina</small>
-                            <div class="d-flex justify-content-center mt-3">
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-primary mx-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        PARTICIPANTES-->
-
-
-        <!-- OPINIONES -->
-        <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="container">
-                <div class="text-center">
-                    <h5 class="section-title ff-secondary text-center text-primary fw-normal">Testimonios</h5>
-                    <h1 class="mb-5">Opiniones</h1>
-                </div>
-                <div class="owl-carousel testimonial-carousel">
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>La calidad de los productos es impecable y el servicio al cliente excepcional. Sublimagic superó mis expectativas en todos los sentidos.</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/testimonial-2.jpg" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Carlos Alberto</h5>
-                                <small>Cliente</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Gracias a Sublimagic, logramos personalizar nuestros uniformes con un diseño único y profesional. ¡Altamente recomendados!</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/capufe (1).png" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">CAPUFE</h5>
-                                <small>Empresa</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>Trabajar con Sublimagic fue un acierto total. La rapidez y precisión en la entrega nos ayudaron a cumplir con un pedido urgente.</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/el chango logo 13x13.png" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">El Chango</h5>
-                                <small>Empresa</small>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-item bg-transparent border rounded p-4">
-                        <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                        <p>La calidad de impresión es insuperable, y sus tiempos de respuesta nos ayudaron a destacar en nuestra campaña publicitaria.</p>
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid flex-shrink-0 rounded-circle" src="img/IMAGEN DAÑADA.png" style="width: 50px; height: 50px;">
-                            <div class="ps-3">
-                                <h5 class="mb-1">Escuela Especial</h5>
-                                <small>Educación</small>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- OPINIONES -->
-        
-
-        <!-- FOOTER -->
-        <div class="container-fluid bg-dark text-light footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s">
-            <div class="container py-5">
-                <div class="row g-5">
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Empresa</h4>
-                        <a class="btn btn-link" href="aboutrse.html#acerca">Acerca de</a>
-                        <a class="btn btn-link" href="contact.html">Contactanos</a>
-                        <a class="btn btn-link" href="priv.html#priv">Politica de Privacidad</a>
-                        <a class="btn btn-link" href="terminos.html#terms">Terminos y Condiciones</a>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Contacto</h4>
-                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Coatzacoalcos, Veracruz, México</p>
-                        <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+52 921-303-1536</p>
-                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>magicsubli35@gmail.com</p>
-                        <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/subli_magic35/"><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/profile.php?id=61550884778970"><i class="fab fa-facebook-f"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <h4 class="section-title ff-secondary text-start text-primary fw-normal mb-4">Horarios</h4>
-                        <h5 class="text-light fw-normal">Lunes - Viernes</h5>
-                        <p>09AM - 09PM</p>
-                        <h5 class="text-light fw-normal">Sabados</h5>
-                        <p>09AM - 03PM</p>
-                    </div>
-                    <div class="col-lg-3 col-md-6">
-                        <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <a href="index.html"><img src="img/LOGO SUBLI BLANCO.png" alt="Subli-Magic" style="width: 13vw;"></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="container">
-                <div class="copyright">
-                    <div class="row">
-                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="https://www.facebook.com/profile.php?id=61550884778970">Subli-Magic</a>, Todos los derechos reservados. 
-							Designed By <a class="border-bottom" href="https://www.facebook.com/profile.php?id=61550884778970">Subli-Magic</a>
-                        </div>
-                        <div class="col-md-6 text-center text-md-end">
-                            <div class="footer-menu">
-                                <a href="index.html">Home</a>
-                                <a href="contact.html#form">Ayuda y Contacto</a>
-                                <a href="aboutrse.html#resp">Responsabilidad Social Empresarial</a>
-                                <a href="misionvision.html">Mision y Vision</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- FOOTER -->
-
-
-        <!-- BOTON REGRESAR AL INICIO -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top" style="background-color: black; border-color: black;"><i class="bi bi-arrow-up"></i></a>
-    </div>
-
-    <!-- SCRIPTS -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/tempusdominus/js/moment.min.js"></script>
-    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
-    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
-
-    <script src="js/main.js"></script>
+    <section class="section section--soft" id="empresas">
+      <div class="container enterprise-panel">
+        <div class="enterprise-panel__media"><img data-enterprise-image src="img/medium-shot-people-working-desk.jpg" alt="Soluciones para empresas" loading="lazy"></div>
+        <div class="enterprise-panel__content"><span class="eyebrow eyebrow--on-dark">Soluciones para empresas</span><h2>Merchandising que fortalece tu marca.</h2><p>Desarrollamos proyectos a la medida con atención personalizada, opciones por volumen y acompañamiento para eventos, equipos, regalos y activaciones.</p><div class="enterprise-points"><span>Kits corporativos</span><span>Eventos y convenciones</span><span>Regalos ejecutivos</span><span>Uniformes y equipos</span></div><a class="btn btn-primary" href="pedido.html">Solicita una cotización →</a></div>
+      </div>
+    </section>
+  </main>
+  <div data-site-footer></div>
+  <script type="module" src="assets/js/shell.js"></script>
+  <script type="module" src="assets/js/home.js"></script>
 </body>
-
 </html>

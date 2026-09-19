@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Catálogo de productos y servicios de Subli-Magic sincronizado con Beheer.">
+  <title>Catálogo | Subli-Magic</title>
+  <link rel="icon" href="img/favicon.png">
+  <link rel="stylesheet" href="assets/css/tokens.css"><link rel="stylesheet" href="assets/css/base.css"><link rel="stylesheet" href="assets/css/components.css"><link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="productos">
+  <div data-site-header></div>
+  <main>
+    <section class="page-hero"><div class="container"><span class="eyebrow eyebrow--on-dark">Tienda / catálogo</span><h1>Encuentra lo que quieres personalizar</h1><p>Este catálogo se alimenta directamente de los productos y servicios activos en Beheer. No usamos productos ficticios ni listas duplicadas.</p></div></section>
+    <section class="section"><div class="container">
+      <div class="catalog-toolbar"><input type="search" placeholder="Buscar producto o servicio" aria-label="Buscar" data-catalog-search><select aria-label="Filtrar por categoría" data-catalog-category></select><select aria-label="Ordenar catálogo" data-catalog-sort><option value="recommended">Recomendados</option><option value="name-asc">Nombre A–Z</option><option value="name-desc">Nombre Z–A</option><option value="category">Categoría</option></select></div>
+      <div class="catalog-result-row"><strong data-catalog-count>Cargando catálogo…</strong><span>Selecciona un artículo para personalizarlo y enviar una solicitud segura.</span></div>
+      <div class="product-grid" data-catalog-grid><div class="catalog-loading-card">Cargando catálogo desde Beheer…</div></div>
+    </div></section>
+  </main>
+  <div data-site-footer></div>
+  <script type="module" src="assets/js/shell.js"></script>
+  <script type="module" src="assets/js/catalogo.js"></script>
+</body>
+</html>
