@@ -1,7 +1,7 @@
 import { SITE_CONFIG } from './config.js';
 import { apiRequest } from './api.js';
 
-const CACHE_KEY = 'sublimagic-public-catalog:v2';
+const CACHE_KEY = 'sublimagic-public-catalog:v3';
 const CACHE_TTL = 60_000;
 let inFlight = null;
 

@@ -1,5 +1,5 @@
 import { SITE_MEDIA } from './media-config.js';
-import { catalogItemCard, loadPublicCatalog } from './public-catalog.js';
+import { catalogItemCard, loadPublicCatalog } from './public-catalog.js?v=20260919-4';
 
 function safeImage(img, fallback = 'img/favicon.png') {
   if (!img) return;
@@ -22,11 +22,13 @@ if (productHost) {
   productHost.innerHTML = '<div class="catalog-loading-card">Cargando productos desde Beheer…</div>';
   try {
     const items = await loadPublicCatalog();
-    const ordered = [...items].sort((a, b) => Number(b.featured) - Number(a.featured) || a.order - b.order || a.name.localeCompare(b.name, 'es'));
-    const featured = ordered.slice(0, 4);
+    const featured = items
+      .filter(item => item.featured === true)
+      .sort((a, b) => a.order - b.order || a.name.localeCompare(b.name, 'es'))
+      .slice(0, 4);
     productHost.innerHTML = featured.length
       ? featured.map(catalogItemCard).join('')
-      : '<div class="catalog-empty-card">Todavía no hay productos públicos activos en Beheer.</div>';
+      : '<div class="catalog-empty-card">Todavía no hay productos destacados publicados desde Beheer.</div>';
   } catch (error) {
     console.error(error);
     productHost.innerHTML = '<div class="catalog-empty-card catalog-empty-card--error">No fue posible cargar el catálogo en este momento. No se muestran productos provisionales para evitar inconsistencias.</div>';

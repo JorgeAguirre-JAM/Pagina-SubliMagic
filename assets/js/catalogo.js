@@ -1,4 +1,4 @@
-import { catalogItemCard, loadPublicCatalog } from './public-catalog.js';
+import { catalogItemCard, loadPublicCatalog } from './public-catalog.js?v=20260919-4';
 
 const grid = document.querySelector('[data-catalog-grid]');
 const search = document.querySelector('[data-catalog-search]');
