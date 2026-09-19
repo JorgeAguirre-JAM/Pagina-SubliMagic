@@ -1,7 +1,7 @@
 import { SITE_CONFIG } from './config.js';
 import { apiRequest } from './api.js';
 
-const CACHE_KEY = 'sublimagic-public-catalog:v1';
+const CACHE_KEY = 'sublimagic-public-catalog:v2';
 const CACHE_TTL = 60_000;
 let inFlight = null;
 
@@ -15,40 +15,47 @@ export const escapeHtml = (value) => String(value ?? '')
 export const escapeAttr = escapeHtml;
 
 function normalizeItem(item) {
-  const capture = item?.captura || {};
-  const configuration = item?.configuracion || {};
-  const variants = Array.isArray(configuration.variantes) ? configuration.variantes : [];
+  const capture = item?.captura || item?.capture || {};
+  const configuration = item?.configuracion || item?.configuration || {};
+  const variants = Array.isArray(configuration.variantes)
+    ? configuration.variantes
+    : (Array.isArray(configuration.variants) ? configuration.variants : []);
+
   return {
     id: String(item?.id || ''),
     tipo: String(item?.tipo || 'PRODUCTO').toUpperCase(),
-    name: String(item?.nombre || 'Producto'),
-    category: String(item?.categoria || 'Otros'),
-    description: String(item?.descripcion || ''),
-    image: String(item?.imagen || ''),
-    featured: Boolean(item?.destacado),
-    order: Number(item?.orden || 0),
-    priceLabel: String(item?.precioLabel || 'Cotizar'),
-    priceType: String(item?.tipoPrecio || 'NORMAL').toUpperCase(),
-    saleUnit: String(item?.unidadVenta || ''),
-    pricingRule: item?.reglaPrecio && typeof item.reglaPrecio === 'object' ? item.reglaPrecio : {},
+    name: String(item?.nombre ?? item?.name ?? 'Producto'),
+    category: String(item?.categoria ?? item?.category ?? 'Otros'),
+    description: String(item?.descripcion ?? item?.description ?? ''),
+    image: String(item?.imagen ?? item?.image ?? ''),
+    featured: Boolean(item?.destacado ?? item?.featured),
+    order: Number(item?.orden ?? item?.order ?? 0),
+    priceLabel: String(item?.precioLabel ?? item?.priceLabel ?? 'Cotizar'),
+    priceType: String(item?.tipoPrecio ?? item?.priceType ?? 'NORMAL').toUpperCase(),
+    saleUnit: String(item?.unidadVenta ?? item?.saleUnit ?? ''),
+    pricingRule: (item?.reglaPrecio && typeof item.reglaPrecio === 'object')
+      ? item.reglaPrecio
+      : ((item?.pricingRule && typeof item.pricingRule === 'object') ? item.pricingRule : {}),
     capture: {
-      type: String(capture.tipo || 'CANTIDAD').toUpperCase(),
-      label: String(capture.etiqueta || 'Cantidad'),
-      unit: String(capture.unidad || 'pieza'),
+      type: String(capture.tipo ?? capture.type ?? 'CANTIDAD').toUpperCase(),
+      label: String(capture.etiqueta ?? capture.label ?? 'Cantidad'),
+      unit: String(capture.unidad ?? capture.unit ?? 'pieza'),
       min: Number(capture.min ?? 1),
       step: Number(capture.step ?? 1)
     },
     configuration: {
-      requiresVariant: Boolean(configuration.requiereVariante),
-      fields: configuration.campos && typeof configuration.campos === 'object' ? configuration.campos : {},
+      requiresVariant: Boolean(configuration.requiereVariante ?? configuration.requiresVariant),
+      fields: (configuration.campos && typeof configuration.campos === 'object')
+        ? configuration.campos
+        : ((configuration.fields && typeof configuration.fields === 'object') ? configuration.fields : {}),
       variants: variants.map(variant => ({
         id: String(variant?.id || ''),
         sku: String(variant?.sku || ''),
-        sizeGroup: String(variant?.grupoTallaNombre || ''),
-        size: String(variant?.tallaNombre || ''),
-        color: String(variant?.colorNombre || ''),
-        colorHex: String(variant?.colorHex || ''),
-        variantName: String(variant?.nombreVariante || '')
+        sizeGroup: String(variant?.grupoTallaNombre ?? variant?.sizeGroup ?? ''),
+        size: String(variant?.tallaNombre ?? variant?.size ?? ''),
+        color: String(variant?.colorNombre ?? variant?.color ?? ''),
+        colorHex: String(variant?.colorHex ?? ''),
+        variantName: String(variant?.nombreVariante ?? variant?.variantName ?? '')
       })).filter(variant => variant.id)
     }
   };
@@ -60,7 +67,7 @@ function readCache() {
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     if (!parsed || Date.now() - parsed.savedAt > CACHE_TTL || !Array.isArray(parsed.items)) return null;
-    return parsed.items.map(normalizeItem);
+    return parsed.items.map(normalizeItem).filter(item => item.id);
   } catch {
     return null;
   }
