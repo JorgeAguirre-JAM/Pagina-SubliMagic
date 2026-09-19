@@ -14,7 +14,7 @@ async function setupTurnstile() {
     document.head.appendChild(script);
   }
   for (let i = 0; i < 80 && !window.turnstile; i += 1) await new Promise(resolve => setTimeout(resolve, 50));
-  if (window.turnstile) window.turnstile.render(host, { sitekey: SITE_CONFIG.turnstileSiteKey, theme: 'light' });
+  if (window.turnstile) window.turnstile.render(host, { sitekey: SITE_CONFIG.turnstileSiteKey, theme: 'light', action: 'contacto_web' });
 }
 setupTurnstile();
 
@@ -30,6 +30,21 @@ form?.addEventListener('submit', async (event) => {
   payload.source = 'WEB_SUBLIMAGIC_CONTACTO';
   payload.idempotencyKey = createIdempotencyKey();
   payload.turnstileToken = window.turnstile?.getResponse?.() || '';
-  try { await apiRequest(SITE_CONFIG.endpoints.contact, { method: 'POST', body: JSON.stringify(payload), headers: { 'Idempotency-Key': payload.idempotencyKey } }); form.reset(); setMessage('Mensaje recibido. Te contactaremos lo antes posible.', 'success'); }
-  catch (_) { setMessage('No pudimos enviar el mensaje. Inténtalo de nuevo o escríbenos por correo.', 'error'); }
+  if (!payload.turnstileToken) {
+    setMessage('Completa la verificación de seguridad antes de enviar.', 'error');
+    return;
+  }
+  try {
+    await apiRequest(SITE_CONFIG.endpoints.contact, {
+      method: 'POST',
+      body: JSON.stringify(payload),
+      headers: { 'Idempotency-Key': payload.idempotencyKey }
+    });
+    form.reset();
+    setMessage('Mensaje recibido. Te contactaremos lo antes posible.', 'success');
+    window.turnstile?.reset?.();
+  } catch (_) {
+    setMessage('No pudimos enviar el mensaje. Inténtalo de nuevo o escríbenos por correo.', 'error');
+    window.turnstile?.reset?.();
+  }
 });
