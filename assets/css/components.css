@@ -160,3 +160,131 @@
   .customer-auth-gate { grid-template-columns: 1fr; }
   .google-signin-btn { width: 100%; justify-content: center; }
 }
+
+/* =========================================================
+   UX FINAL · 2026-09-19
+   Accesibilidad, controles y navegación responsive.
+========================================================= */
+
+html { scroll-padding-top: 96px; }
+body { overflow-x: hidden; }
+
+button,
+a,
+input,
+select,
+textarea {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid rgba(79, 124, 255, .22);
+  outline-offset: 3px;
+}
+
+button:disabled,
+.btn[aria-disabled="true"],
+input:disabled,
+select:disabled,
+textarea:disabled {
+  cursor: not-allowed;
+  opacity: .58;
+}
+
+.site-header { box-shadow: 0 10px 28px rgba(4, 12, 24, .08); }
+.navbar { min-width: 0; }
+.brand { min-width: 0; flex: 0 1 auto; }
+.brand img { max-width: min(230px, 46vw); }
+.nav-links { min-width: 0; }
+
+.btn { line-height: 1.15; text-align: center; }
+.btn:active { transform: translateY(0); }
+
+.field label { line-height: 1.35; }
+.field input,
+.field select,
+.field textarea {
+  transition: border-color .15s ease, box-shadow .15s ease, background-color .15s ease;
+}
+.field input:hover,
+.field select:hover,
+.field textarea:hover { border-color: #c9d3df; }
+.field input:disabled,
+.field select:disabled,
+.field textarea:disabled { background: #f3f5f8; }
+
+/* Controles de archivo: claros y táctiles sin alterar el input nativo. */
+.field input[type="file"] {
+  min-height: 52px;
+  padding: 7px;
+  background: #fbfcfe;
+}
+.field input[type="file"]::file-selector-button {
+  min-height: 36px;
+  margin-right: 10px;
+  padding: 0 13px;
+  border: 1px solid #d8e0ea;
+  border-radius: 9px;
+  background: #fff;
+  color: var(--sm-ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.customer-auth-gate,
+.order-card,
+.order-summary,
+.contact-panel,
+.contact-form {
+  min-width: 0;
+}
+
+.design-file-preview {
+  overflow-wrap: anywhere;
+  border: 1px solid #e3e8ef;
+}
+
+.alert { line-height: 1.45; }
+
+@media (max-width: 980px) {
+  .nav-links {
+    max-height: calc(100dvh - 96px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+  }
+}
+
+@media (max-width: 720px) {
+  .navbar { min-height: 68px; }
+  .brand img { height: 38px; max-width: min(205px, 56vw); }
+  .nav-links { inset: 68px 10px auto 10px; border-radius: 14px; }
+  .menu-toggle { width: 42px; height: 42px; }
+  .btn { min-height: 46px; }
+  .customer-auth-gate { padding: 15px; }
+  .customer-session { align-items: flex-start; }
+}
+
+@media (max-width: 420px) {
+  .container { width: calc(100% - 22px); }
+  .field input,
+  .field select,
+  .field textarea { font-size: 16px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: .01ms !important;
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
