@@ -68,13 +68,62 @@ function variantLabel(variant) {
 }
 
 function selectedVariant() {
-  const select = productConfig?.querySelector('[name="varianteProductoId"]');
+  const input = productConfig?.querySelector('[name="varianteProductoId"]');
   const item = currentItem();
-  if (!select || !item) return null;
-  return item.configuration.variants.find(variant => variant.id === select.value) || null;
+  if (!input || !item) return null;
+  return item.configuration.variants.find(variant => variant.id === input.value) || null;
 }
 
-function applyProductConfiguration(item) {
+function variantValue(variant, axis) {
+  return String(variant?.[axis] || '').trim();
+}
+
+function uniqueVariantValues(variants, axis) {
+  return [...new Set(variants.map(variant => variantValue(variant, axis)).filter(Boolean))]
+    .sort((a, b) => a.localeCompare(b, 'es', { numeric: true, sensitivity: 'base' }));
+}
+
+function filterVariants(variants, selections) {
+  return variants.filter(variant => Object.entries(selections).every(([axis, value]) => {
+    if (!value) return true;
+    return variantValue(variant, axis) === value;
+  }));
+}
+
+function currentVariantSelectionState() {
+  const axes = {};
+  productConfig?.querySelectorAll('[data-variant-axis]').forEach(select => {
+    axes[select.dataset.variantAxis] = select.value || '';
+  });
+  return {
+    axes,
+    finalId: productConfig?.querySelector('[data-variant-final]')?.value
+      || productConfig?.querySelector('[name="varianteProductoId"]')?.value
+      || ''
+  };
+}
+
+function variantFieldClass(count) {
+  if (count <= 1) return 'field';
+  if (count === 2) return 'field field--6';
+  return 'field field--4';
+}
+
+function renderVariantSelect({ axis, label, options, value, disabled = false, help = '' }, fieldClass) {
+  const placeholder = disabled ? 'Selecciona primero la opción anterior' : `Selecciona ${label.toLowerCase()}`;
+  const optionHtml = options
+    .map(option => `<option value="${escapeAttr(option)}"${option === value ? ' selected' : ''}>${escapeHtml(option)}</option>`)
+    .join('');
+  return `<div class="${fieldClass}">
+    <label for="variante-${escapeAttr(axis)}">${escapeHtml(label)} *</label>
+    <select id="variante-${escapeAttr(axis)}" data-variant-axis="${escapeAttr(axis)}"${disabled ? ' disabled' : ''} required>
+      <option value="">${escapeHtml(placeholder)}</option>${optionHtml}
+    </select>
+    ${help ? `<span class="form-help">${escapeHtml(help)}</span>` : ''}
+  </div>`;
+}
+
+function applyProductConfiguration(item, preferred = null) {
   state.variantUnavailable = false;
   if (!productConfig) return;
 
@@ -92,11 +141,106 @@ function applyProductConfiguration(item) {
     return;
   }
 
-  const options = configuration.variants
-    .map(variant => `<option value="${escapeAttr(variant.id)}">${escapeHtml(variantLabel(variant))}</option>`)
-    .join('');
-  productConfig.innerHTML = `<label for="varianteProductoId">Talla / color / variante *</label><select id="varianteProductoId" name="varianteProductoId" required><option value="">Selecciona una opción</option>${options}</select><span class="form-help">Las opciones provienen de las variantes activas registradas en Beheer.</span>`;
-  productConfig.querySelector('select')?.addEventListener('change', updateSummary);
+  const variants = configuration.variants;
+  const remembered = preferred || currentVariantSelectionState();
+  const selections = { ...(remembered?.axes || {}) };
+
+  const groupValues = uniqueVariantValues(variants, 'sizeGroup');
+  if (groupValues.length === 1) selections.sizeGroup = groupValues[0];
+
+  const axes = [];
+  if (groupValues.length > 1) {
+    axes.push({ axis: 'sizeGroup', label: 'Tipo / línea', help: 'Ej. Hombre, Mujer, Niño, Unisex.' });
+  }
+  if (uniqueVariantValues(variants, 'size').length) axes.push({ axis: 'size', label: 'Talla' });
+  if (uniqueVariantValues(variants, 'color').length) axes.push({ axis: 'color', label: 'Color' });
+  if (uniqueVariantValues(variants, 'variantName').length) axes.push({ axis: 'variantName', label: 'Variante' });
+
+  const controls = [];
+  let previousBlocked = false;
+  for (const definition of axes) {
+    const previousSelections = {};
+    for (const previous of axes) {
+      if (previous.axis === definition.axis) break;
+      if (selections[previous.axis]) previousSelections[previous.axis] = selections[previous.axis];
+    }
+    if (selections.sizeGroup && !previousSelections.sizeGroup && definition.axis !== 'sizeGroup') {
+      previousSelections.sizeGroup = selections.sizeGroup;
+    }
+
+    const options = previousBlocked
+      ? []
+      : uniqueVariantValues(filterVariants(variants, previousSelections), definition.axis);
+
+    let value = selections[definition.axis] || '';
+    if (!options.includes(value)) value = '';
+    if (options.length === 1) value = options[0];
+    selections[definition.axis] = value;
+
+    const disabled = previousBlocked || options.length === 0;
+    controls.push({ ...definition, options, value, disabled });
+    if (!disabled && options.length > 1 && !value) previousBlocked = true;
+  }
+
+  const renderedCount = Math.max(1, Math.min(3, controls.length));
+  const fieldClass = variantFieldClass(renderedCount);
+  const controlsHtml = controls.map(control => renderVariantSelect(control, fieldClass)).join('');
+
+  const activeSelections = {};
+  if (selections.sizeGroup) activeSelections.sizeGroup = selections.sizeGroup;
+  for (const definition of axes) {
+    if (selections[definition.axis]) activeSelections[definition.axis] = selections[definition.axis];
+  }
+
+  const requiredAxesComplete = controls.every(control => control.disabled || Boolean(selections[control.axis]));
+  const matches = requiredAxesComplete ? filterVariants(variants, activeSelections) : [];
+  let selectedId = '';
+  let finalSelectHtml = '';
+
+  if (matches.length === 1) {
+    selectedId = matches[0].id;
+  } else if (matches.length > 1) {
+    const rememberedFinal = matches.some(variant => variant.id === remembered?.finalId) ? remembered.finalId : '';
+    selectedId = rememberedFinal || '';
+    const options = matches.map(variant => {
+      const suffix = variant.sku ? ` · ${variant.sku}` : '';
+      return `<option value="${escapeAttr(variant.id)}"${variant.id === selectedId ? ' selected' : ''}>${escapeHtml(variantLabel(variant) + suffix)}</option>`;
+    }).join('');
+    finalSelectHtml = `<div class="field">
+      <label for="variante-final">Opción específica *</label>
+      <select id="variante-final" data-variant-final required>
+        <option value="">Selecciona una opción</option>${options}
+      </select>
+      <span class="form-help">Beheer tiene más de una variante con la misma combinación; selecciona la opción exacta.</span>
+    </div>`;
+  }
+
+  productConfig.innerHTML = `<div class="form-grid">
+    ${controlsHtml}
+    ${finalSelectHtml}
+  </div>
+  <input type="hidden" id="varianteProductoId" name="varianteProductoId" value="${escapeAttr(selectedId)}">
+  <span class="form-help">Las opciones se filtran por tipo, talla y color usando exclusivamente las variantes activas registradas en Beheer.</span>`;
+
+  productConfig.querySelectorAll('[data-variant-axis]').forEach(select => {
+    select.addEventListener('change', () => {
+      const next = currentVariantSelectionState();
+      next.axes[select.dataset.variantAxis] = select.value || '';
+
+      const changedIndex = axes.findIndex(definition => definition.axis === select.dataset.variantAxis);
+      axes.slice(changedIndex + 1).forEach(definition => { next.axes[definition.axis] = ''; });
+      next.finalId = '';
+
+      applyProductConfiguration(item, next);
+      updateSummary();
+    });
+  });
+
+  productConfig.querySelector('[data-variant-final]')?.addEventListener('change', event => {
+    const hidden = productConfig.querySelector('[name="varianteProductoId"]');
+    if (hidden) hidden.value = event.target.value || '';
+    updateSummary();
+  });
 }
 
 function applyCaptureRules(item) {
