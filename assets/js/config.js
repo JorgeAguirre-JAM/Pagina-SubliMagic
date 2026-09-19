@@ -8,7 +8,7 @@ export const SITE_CONFIG = {
   },
   livePublicApi: true,
   requireGoogleSignIn: true,
-  turnstileSiteKey: '',
+  turnstileSiteKey: '1x00000000000000000000AA',
   maxDesignBytes: 8 * 1024 * 1024,
   firebase: {
     apiKey: 'AIzaSyAFXLRfswPLDMmp689Cz3Igho5vPHh_-Wc',
